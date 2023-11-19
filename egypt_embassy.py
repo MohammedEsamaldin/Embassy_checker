@@ -12,10 +12,10 @@ from email.mime.multipart import MIMEMultipart
 def send_email_notification(subject, message):
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    smtp_username = "mohammedesam.mem@gmail.com"
-    smtp_password = "bpvo xmja fijr yfkg"
-    sender_email = "mohammedesam.mem@gmail.com"
-    receiver_email = "mohammedesam.mem@gmail.com"
+    smtp_username = ""  # Add you Email here
+    smtp_password = "" # Add generated pass code here 
+    sender_email = ""  # Add you Email here
+    receiver_email = ""  # Add you Email here
 
     msg = MIMEMultipart()
     msg["From"] = sender_email
@@ -54,7 +54,7 @@ def check_availability():
         message_element = driver.find_element(By.XPATH, '//*[contains(text(), "No times are available")]')
         if message_element:
             print("No new available times.")
-            send_email_notification("New Availability Alert","No new available times.")
+            # send_email_notification("New Availability Alert","No new available times.")
         else:
             send_email_notification("New Availability Alert", "New time slots might be available on the website.")
     except NoSuchElementException:
@@ -65,9 +65,9 @@ def check_availability():
 # Continuously check every 10 minutes
 while True:
     check_availability()
-    print("Waiting 10 minutes before the next check...")
+    # print("Waiting 10 minutes before the next check...")
 
-    time.sleep(60)  # Wait for 10 minutes (600 seconds) before checking again
+    time.sleep(300)  # Wait for 5 minutes (300 seconds) before checking again
 
 
 
