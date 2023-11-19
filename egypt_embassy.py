@@ -12,10 +12,10 @@ from email.mime.multipart import MIMEMultipart
 def send_email_notification(subject, message):
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    smtp_username = ""  # Add you Email here
-    smtp_password = "" # Add generated pass code here 
-    sender_email = ""  # Add you Email here
-    receiver_email = ""  # Add you Email here
+    smtp_username = "bakrymohamed1998@gmail.com"  # Add you Email here
+    smtp_password = "baus fahk owev knwc" # Add generated pass code here 
+    sender_email = "bakrymohamed1998@gmail.com"  # Add you Email here
+    receiver_email = "bakrymohamed1998@gmail.com"  # Add you Email here
 
     msg = MIMEMultipart()
     msg["From"] = sender_email
