@@ -7,6 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from selenium.webdriver.chrome.service import Service
 
 # Initialize the SMTP server for sending email notifications
 def send_email_notification(subject, message):
@@ -45,8 +46,12 @@ def check_availability():
     chrome_options.add_argument('--disable-extensions')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
+    service = Service(executable_path=ChromeDriverManager().install())
 
-    driver = webdriver.Chrome()
+
+    # driver = webdriver.Chrome()
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    # webdriver.Chrome(, options=chrome_options)
     driver.get("https://egyptianconsulateindubai.as.me/schedule.php")
 
     try:
