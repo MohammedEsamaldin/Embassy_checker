@@ -67,6 +67,7 @@ def check_availability():
         message_element = driver.find_element(By.XPATH, '//*[contains(text(), "No times are available")]')
         if message_element:
             print("No new available times.")
+            log_status("No new available times")
             # send_email_notification("New Availability Alert","No new available times.")
         else:
             send_email_notification("New Availability Alert", "New time slots might be available on the website.")
