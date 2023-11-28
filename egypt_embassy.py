@@ -82,7 +82,7 @@ def check_availability():
 while True:
     check_availability()
     # print("Waiting 10 minutes before the next check...")
-
+    log_df.to_excel("availability_log.xlsx", index=False)
     time.sleep(300)  # Wait for 5 minutes (300 seconds) before checking again
 
 
