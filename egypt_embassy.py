@@ -74,6 +74,7 @@ def check_availability():
             log_status("New time slots might be available")
     except NoSuchElementException:
         send_email_notification("New Availability Alert", "New time slots might be available on the website.")
+        log_status("New time slots might be available")
     finally:
         driver.quit()
 
