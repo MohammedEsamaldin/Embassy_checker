@@ -39,6 +39,11 @@ def send_email_notification(subject, message):
         print("Email notification sent successfully.")
     except Exception as e:
         print(f"Failed to send email notification: {e}")
+def log_status(status):
+    global log_df
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_df = log_df.append({'Timestamp': current_time, 'Status': status}, ignore_index=True)
+
 
 def check_availability():
     chrome_options = Options()
