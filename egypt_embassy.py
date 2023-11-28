@@ -8,6 +8,9 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from selenium.webdriver.chrome.service import Service
+import pandas as pd
+from datetime import datetime
+
 
 # Initialize the SMTP server for sending email notifications
 def send_email_notification(subject, message):
