@@ -71,6 +71,7 @@ def check_availability():
             # send_email_notification("New Availability Alert","No new available times.")
         else:
             send_email_notification("New Availability Alert", "New time slots might be available on the website.")
+            log_status("New time slots might be available")
     except NoSuchElementException:
         send_email_notification("New Availability Alert", "New time slots might be available on the website.")
     finally:
