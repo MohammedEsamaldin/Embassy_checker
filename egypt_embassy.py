@@ -47,7 +47,6 @@ def log_status(status):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_df = pd.concat([log_df, pd.DataFrame([{'Timestamp': current_time, 'Status': status}])],ignore_index=True)
     
-    # log_df =  log_df.append({'Timestamp': current_time, 'Status': status}, ignore_index=True)
     
 
 
