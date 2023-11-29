@@ -12,6 +12,8 @@ from selenium.webdriver.chrome.service import Service
 import pandas as pd
 from datetime import datetime
 
+# Initialize the DataFrame
+log_df = pd.DataFrame(columns=['Timestamp', 'Status'])
 
 # Initialize the SMTP server for sending email notifications
 def send_email_notification(subject, message):
@@ -43,7 +45,9 @@ def send_email_notification(subject, message):
 def log_status(status):
     global log_df
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_df = log_df.append({'Timestamp': current_time, 'Status': status}, ignore_index=True)
+    
+    # log_df =  log_df.append({'Timestamp': current_time, 'Status': status}, ignore_index=True)
+    
 
 
 def check_availability():
@@ -80,11 +84,12 @@ def check_availability():
         driver.quit()
 
 # Continuously check every 10 minutes
+
 while True:
     check_availability()
     # print("Waiting 10 minutes before the next check...")
     log_df.to_excel("availability_log.xlsx", index=False)
-    time.sleep(300)  # Wait for 5 minutes (300 seconds) before checking again
+    time.sleep(5)  # Wait for 5 minutes (300 seconds) before checking again
 
 
 
