@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
