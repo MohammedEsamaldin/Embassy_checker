@@ -46,9 +46,6 @@ def log_status(status):
     global log_df
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_df = pd.concat([log_df, pd.DataFrame([{'Timestamp': current_time, 'Status': status}])],ignore_index=True)
-    
-    
-
 
 def check_availability():
     chrome_options = Options()
@@ -69,7 +66,7 @@ def check_availability():
 
     try:
         time.sleep(5)  # Wait for the page to load
-        message_element = driver.find_element(By.XPATH, '//*[contains(text(), "No times are available")]')
+        message_element = driver.find_element(By.ID, 'no-times-available-message')
         if message_element:
             print("No new available times.")
             log_status("No new available times")
